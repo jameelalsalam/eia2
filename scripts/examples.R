@@ -54,6 +54,9 @@ eia2_resp_total(elec_retail_data_v1)
 # [1] 97464
 # API doc shows 7440. Maybe this is restricted to CO?
 
+elec_retail_CO <- eia2("electricity/retail-sales", facets = list(stateid = "CO"))
+elec_retail_CO |> resp_body_json() |> str()
+
 elec_retail_data_CO <- eia2("electricity/retail-sales/data", facets = list(stateid = "CO"))
 elec_retail_data_CO <- eia2_req("electricity/retail-sales/data", facets = list(stateid = "CO"))
 
