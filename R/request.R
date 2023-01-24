@@ -64,11 +64,9 @@ eia2_req <- function(
   base_url <- "https://api.eia.gov/"
 
   if (length(data_cols) > 0) {
-    data_route <- "data/"
-    dataset <- stringr::str_remove(dataset, "/data$")
+    if (!stringr::str_detect(dataset, "/data$")) dataset <- paste0(dataset, "/data")
     params_data <- query_expand_data(list(data = data_cols))
   } else {
-    data_route <- ""
     params_data <- list(data = NULL)
   }
 
@@ -100,7 +98,6 @@ eia2_req <- function(
   req <- request(base_url) |>
     req_url_path_append("v2") |>
     req_url_path_append(dataset) |>
-    req_url_path_append(data_route) |>
     req_url_query(!!! all_params) |>
     #req_url_query(api_key = api_key) |>
     req_user_agent("eia2 (http://github.com/jameelalsalam/eia2)")
