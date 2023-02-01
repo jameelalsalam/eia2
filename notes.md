@@ -11,6 +11,7 @@
 - CI / Github Actions
 - caching of API requests
 - README
+- Suggested citation for EIA data with citHeader and citEntry? https://devguide.ropensci.org/building.html
 - Getting started vignette
 - Further split low-level function (that is flexible, close to API vocab, and won't break) from high-level UI functions
 - Low-level helper for query parameters
