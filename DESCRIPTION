@@ -18,6 +18,7 @@ Imports:
     curl,
     glue,
     httr2,
+    jsonlite,
     purrr,
     rlang,
     stringr,

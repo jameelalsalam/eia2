@@ -3,3 +3,4 @@
 ^scripts$
 ^LICENSE\.md$
 ^notes.md$
+^data-raw$

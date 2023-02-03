@@ -34,11 +34,3 @@ testthat::test_that("expand nested facets parameter to vectors", {
     param_nested_list
   )
 })
-
-testthat::test_that("expand df parameter correctly", {
-  param_df <- list(data.frame(
-    column = c("period"),
-    direction = c("desc")
-  ))
-
-})
