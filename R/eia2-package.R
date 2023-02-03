@@ -1,6 +1,6 @@
 #' @keywords internal
 #' @import httr2
-#' @importFrom purrr keep
+#' @import purrr
 "_PACKAGE"
 
 ## usethis namespace: start
