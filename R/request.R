@@ -13,6 +13,10 @@ eia2 <- function(
     frequency = NULL,
     startPeriod = NULL,
     endPeriod = NULL,
+    sort = data.frame(
+      column = "period",
+      direction = "desc"
+    ),
     offset = 0,
     length = 5000,
     out = "json",
@@ -25,6 +29,7 @@ eia2 <- function(
     frequency = frequency,
     startPeriod = startPeriod,
     endPeriod = endPeriod,
+    sort = sort,
     offset = offset,
     length = length,
     out = out,
@@ -55,6 +60,10 @@ eia2_req <- function(
     frequency = NULL,
     startPeriod = NULL,
     endPeriod = NULL,
+    sort = data.frame(
+      column = "period",
+      direction = "desc"
+    ),
     offset = 0,
     length = 5000,
     out = "json",
@@ -76,6 +85,12 @@ eia2_req <- function(
     params_facets <- list(facets = NULL)
   }
 
+  if (length(sort) > 0) {
+    params_sort <- query_expand_sort(list(sort = sort))
+  } else {
+    params_sort <- list(sort = NULL)
+  }
+
 
   # set to NULL for API defaults
   if (length == 5000) length <- NULL
@@ -88,6 +103,7 @@ eia2_req <- function(
     frequency = frequency,
     startPeriod = startPeriod,
     endPeriod = endPeriod,
+    !!! params_sort,
     offset = offset,
     length = length,
     out = out,
