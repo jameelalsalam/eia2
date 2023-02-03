@@ -33,10 +33,10 @@ eia2 <- function(
     offset = offset,
     length = length,
     out = out,
-    api_key = api_key
+    api_key = NULL
   )
 
-  resp <- req_perform(req)
+  resp <- eia2_req_perform(req, api_key = api_key)
 
   if (length(data_cols) > 0 | stringr::str_detect(dataset, "/data$")) eia2_resp_data(resp) else resp
 }
@@ -67,7 +67,7 @@ eia2_req <- function(
     offset = 0,
     length = 5000,
     out = "json",
-    api_key = Sys.getenv("EIA_KEY")
+    api_key = NULL
     ) {
 
   base_url <- "https://api.eia.gov/"
