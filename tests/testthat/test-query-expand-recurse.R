@@ -66,3 +66,11 @@ testthat::test_that("auto_unbox works", {
   )
 
 })
+
+testthat::test_that("null parameters preserved", {
+  expect_equal(
+    query_expand_params(list(api_key = NULL)),
+    list(api_key = NULL)
+  )
+})
+

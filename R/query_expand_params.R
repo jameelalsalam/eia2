@@ -76,7 +76,9 @@ if (FALSE) {library(jsonlite); library(purrr)}
 
 param_node_type <- function(x, auto_unbox = FALSE) {
 
-  if ("scalar" %in% class(x)) {
+  if (is.null(x)) {
+    "null"
+  } else if ("scalar" %in% class(x)) {
     "scalar"
   } else if (auto_unbox && rlang::is_atomic(x) && length(x) == 1) {
     "unbox scalar"
@@ -111,6 +113,12 @@ switch_param_node <- function(x, auto_unbox, ...) {
   )
 }
 
+wrap_inner_names_in_brackets <- function(x) {
+  map(x, function(elem) {
+    if (is.null(elem)) elem else set_names(elem, paste0("[", names(elem), "]"))
+  })
+}
+
 # must return flat-list or list-of-flat-lists
 query_expand_recurse <- function(x, auto_unbox = FALSE) {
 
@@ -120,6 +128,7 @@ query_expand_recurse <- function(x, auto_unbox = FALSE) {
     x,
     auto_unbox = auto_unbox,
     # Base cases
+    "null" = x,
     "scalar" = x,
     "unbox scalar" = unbox(x),
     "unbox param" = unbox(x),
@@ -129,13 +138,12 @@ query_expand_recurse <- function(x, auto_unbox = FALSE) {
 
     # Recursive cases
     "df" = {
-      res <- query_expand_recurse(list_transpose(as.list(x)), auto_unbox = auto_unbox) |>
-        map(~set_names(.x, paste0("[", names(.x), "]"))) # wrap inner names in []
+      query_expand_recurse(list_transpose(as.list(x)), auto_unbox = auto_unbox) |>
+        wrap_inner_names_in_brackets()
     },
     "unordered list" = {
       map(x, ~query_expand_recurse(.x, auto_unbox = auto_unbox)) |>
-        #set_names(names(x)) |>
-        map(~set_names(.x, paste0("[", names(.x), "]"))) # wrap inner names in []
+        wrap_inner_names_in_brackets()
       },
     "ordered list" = {
       map(x, ~query_expand_recurse(.x, auto_unbox = auto_unbox)) |>
