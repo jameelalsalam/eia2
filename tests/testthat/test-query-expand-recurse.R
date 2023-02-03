@@ -25,19 +25,19 @@ testthat::test_that("expand: unordered nested param", {
 
 testthat::test_that("expand: df", {
 
-  #df <- data.frame(column = c("period", "value"), order = c("desc", "asc"))
+  #df <- data.frame(column = c("period", "value"), direction = c("desc", "asc"))
 
   expect_equal(
     query_expand_params(
       list("sort" = data.frame(
         column = c("period", "value"),
-        order = c("desc", "asc")))
+        direction = c("desc", "asc")))
       ),
     list(
       "sort[0][column]" = "period",
-      "sort[0][order]" = "desc",
+      "sort[0][direction]" = "desc",
       "sort[1][column]" = "value",
-      "sort[1][order]" = "asc"),
+      "sort[1][direction]" = "asc"),
     ignore_attr = TRUE
   )
 

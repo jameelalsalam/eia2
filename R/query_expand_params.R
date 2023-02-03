@@ -1,53 +1,7 @@
 
-# query_expand_2.R
+# query_expand_params.R
 
 
-
-
-
-
-if (FALSE) {
-  name_vec <- c("frequency" = "annual", "offset" = 0)
-  name_list <- list(frequency = "annual", offset = 0)
-  unname_vec <- c("annual", "offset")
-  unname_list <- list("ref", "ref2021")
-  na_vec <- c(NA_character_)
-  null_list <- c(NULL)
-  df <- data.frame(
-    column = "period",
-    order = "desc"
-  )
-
-  param_node_type(name_vec)
-  param_node_type(name_list)
-  param_node_type(unname_vec)
-  param_node_type(unname_list)
-  param_node_type(na_vec)
-  param_node_type(null_list)
-  param_node_type(df)
-
-  x <- list(msn = c("first", "second"))
-  param_node_type(x)
-  pluck_depth(x)
-  query_expand_recurse(x, auto_unbox = FALSE)
-  query_expand_recurse(x, auto_unbox = TRUE)
-  query_expand_params(x)
-
-  x2 <- list(
-    facets = list(
-      msn = c("first", "second"),
-      sectors = c("oil", "gas")
-    )
-  )
-  param_node_type(x2)
-  pluck_depth(x2)
-
-
-
-
-
-  list_flatten(res, name_spec = '{outer}{inner}')
-}
 
 #' Expand/Flatted Nested Objects to be Used as url query parameters
 #'

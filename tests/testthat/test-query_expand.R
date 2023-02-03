@@ -39,3 +39,20 @@ testthat::test_that("expand nested facets parameter", {
     ignore_attr = TRUE
   )
 })
+
+testthat::test_that("expand sort parameter", {
+  param_df <- list(sort = data.frame(
+    column = "period",
+    direction = "desc"
+  ))
+
+  expect_equal(
+    query_expand_sort(param_df),
+    list(
+      "sort[0][column]" = "period",
+      "sort[0][direction]" = "desc"
+    ),
+    ignore_attr = TRUE
+  )
+  #sort[0][column]=period&sort[0][direction]=desc
+})

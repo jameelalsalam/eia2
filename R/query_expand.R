@@ -2,30 +2,6 @@
 # the httr2 version of query_build cannot handle nested/array query params
 # but once they are expanded, they work.
 
-if(FALSE) {
-  library(httr2)
-  library(rlang)
-  library(purrr)
-  x <- list(
-    frequency = list("annual"),
-    facets = "scenarioid",
-    data = "value"
-  )
-
-  x <- list(
-    frequency = "annual",
-    facets = "scenarioid",
-    data = "value"
-  )
-
-  x <- list(
-    frequency = "annual",
-    facets = list(
-      scenarioid = "ref"
-    ),
-    data = c("value", "price")
-  )
-}
 
 # from httr2:
 query_build <- function(x) {
@@ -109,5 +85,17 @@ query_expand_facets <- function(x) {
   stopifnot(rlang::is_list(x[[1]]))
 
   # facets[stateid][]=CA&facets[stateid][]=CO&facets[scenarioid]=ref
+  query_expand_params(x)
+}
+
+
+query_expand_sort <- function(x) {
+  stopifnot(length(x) == 1)
+  stopifnot(names(x) == "sort")
+
+  #element is a data.frame
+  stopifnot(is.data.frame(x[[1]]))
+  stopifnot(names(x[[1]]) == c("column", "direction"))
+
   query_expand_params(x)
 }
