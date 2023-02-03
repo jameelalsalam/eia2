@@ -82,13 +82,7 @@ query_expand_data <- function(x) {
   stopifnot(is.null(names(x[[1]])))
   stopifnot(rlang::is_atomic(x[[1]]))
 
-  # component name:
-  names <- curl::curl_escape(names(x)) # always 'data'
-  elems <- x[[1]]
-  elem_nums <- seq_along(elems)-1
-  out_names <- as.character(glue::glue("{names}[{elem_nums}]"))
-
-  as.list(rlang::set_names(elems, nm = out_names))
+  query_expand_params(x)
 }
 
 #' Expand `facets` parameter for EIA APIv2
@@ -114,13 +108,6 @@ query_expand_facets <- function(x) {
   stopifnot(purrr::every(x[[1]], rlang::is_atomic))
   stopifnot(rlang::is_list(x[[1]]))
 
-  # component name:
-  names <- curl::curl_escape(names(x))
-
-  x2 <- vctrs::vec_c(!!! x, .name_spec = "{outer}[{inner}]")
-  out_names <- paste0(names(x2), "[]")
-
-  as.list(rlang::set_names(x2, out_names))
-
   # facets[stateid][]=CA&facets[stateid][]=CO&facets[scenarioid]=ref
+  query_expand_params(x)
 }
