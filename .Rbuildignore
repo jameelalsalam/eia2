@@ -4,3 +4,4 @@
 ^LICENSE\.md$
 ^notes.md$
 ^data-raw$
+^README\.Rmd$

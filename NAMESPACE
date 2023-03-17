@@ -3,6 +3,8 @@
 export(eia1_translate)
 export(eia2)
 export(eia2_req)
+export(eia2_resp_data)
+export(eia2_resp_meta_routes)
 import(httr2)
 import(purrr)
 importFrom(jsonlite,unbox)

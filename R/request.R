@@ -38,7 +38,13 @@ eia2 <- function(
 
   resp <- eia2_req_perform(req, api_key = api_key)
 
-  if (length(data_cols) > 0 | stringr::str_detect(dataset, "/data$")) eia2_resp_data(resp) else resp
+  if (length(data_cols) > 0 | stringr::str_detect(dataset, "/data$")) {
+    # data requests
+    eia2_resp_data(resp)
+  } else {
+    # in some cases, might want eia2_resp_routes
+    eia2_resp_sanitize(resp)
+  }
 }
 
 

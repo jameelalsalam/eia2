@@ -1,0 +1,109 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# eia2
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The `eia2` package provides functions to download data from the US Energy Information Administration Open Data API version 2.
+
+Using the EIA API (via this package or other means) requires a registered API key.
+
+
+## Installation
+
+You can install the development version of eia2 from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("jameelalsalam/eia2")
+```
+
+## Authentication
+
+Ensure your API key is available by setting it as an environment variable. You can add it to your user-level .Renviron file by:
+
+``` r
+usethis::edit_r_environ("user")
+```
+
+And adding a line such as:
+EIA_KEY=<YOUR-KEY-HERE>
+
+After restarting, running `Sys.getenv("EIA_KEY")` should return your key.
+
+
+## Explore Available Data
+
+You can browse available datasets:
+
+```{r}
+library(eia2)
+
+eia2() |> eia2_resp_meta_routes()
+```
+
+
+And iteratively explore routes within a dataset, such as:
+
+```{r}
+elec_meta <- eia2("electricity")
+
+elec_meta |> eia2_resp_meta_routes() 
+```
+
+When you get to the bottom of a route, there won't be any further routes:
+
+```{r}
+eia2("electricity/retail-sales") |> eia2_resp_meta_routes()
+```
+
+But to retrieve data, you also need to specify other parameters, such as the data columns you want to retrieve.
+
+(TODO: example of how to figure out valid data columns and filters)
+
+And finally download data such as:
+
+```{r}
+elec_retail_sales_annual_data <-
+  eia2("electricity/retail-sales", frequency = "annual", data_cols = "revenue")
+
+elec_retail_sales_annual_data
+```
+
+
+``` r
+
+
+
+```
+
+## Moving from API version 1
+
+The EIA version 2 API provides a mechanism to retrieve similar data as was available via the series ID API endpoint in the version 1 API. This web form on the EIA Open Data website can help translate version 1 series IDs into version 2 routes. In addition, this package ...
+
+
+## Specifying Related Data via Parameters and Facets
+
+The EIA version 2 API organizes dataset topics using routes, and then allows specification of various parameters and facets to narrow the specific data being requested.
+
+...
+
+
+## Acknowledgements
+
+eia2 is based on previous work by Matthew Leonawicz on the [eia](https://github.com/ropensci/eia) package. It has benefited from many useful packages and resources including httr2, ropensci package guide, and HTTP testing for R.
+

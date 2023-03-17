@@ -11,11 +11,8 @@ devtools::load_all(".")
 # DOC SECTION: https://www.eia.gov/opendata/documentation.php#Iterating
 elec_meta <- eia2("electricity")
 
-# look at it generally:
-elec_meta |> resp_body_json() |> str()
-
 # info on possible routes below /electricity:
-elec_meta |> eia2_resp_meta_routes() |> tibble::as_tibble()
+elec_meta
 
 # below /electricity/retail-sales
 elec_retail_meta <- eia2("electricity/retail-sales")
