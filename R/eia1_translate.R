@@ -9,6 +9,7 @@
 #'
 #' @examples
 #' series_id <- c("TOTAL.TECCEUS.A", "TOTAL.TERCEUS.A")
+#' req_specs_v2 <- eia1_translate(series_id)
 #' @export
 eia1_translate <- function(series_id) {
 
