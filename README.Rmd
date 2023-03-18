@@ -97,7 +97,12 @@ elec_retail_CO
 
 ## Moving from API version 1
 
-The EIA version 2 API provides a mechanism to retrieve similar data as was available via the series ID API endpoint in the version 1 API. This web form on the EIA Open Data website can help translate version 1 series IDs into version 2 routes. In addition, this package ...
+The EIA version 2 API provides a mechanism to retrieve similar data as was available via the series ID API endpoint in the version 1 API. This web form on the EIA Open Data website can help translate version 1 series IDs into version 2 routes. In addition, this package provides a function `eia1_series` which can make requests using legacy series id's.
+
+```{r}
+eia1_series("ELEC.SALES.CO-RES.A")
+```
+
 
 
 ## Specifying Related Data via Parameters and Facets

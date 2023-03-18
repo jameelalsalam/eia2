@@ -167,7 +167,26 @@ elec_retail_CO
 The EIA version 2 API provides a mechanism to retrieve similar data as
 was available via the series ID API endpoint in the version 1 API. This
 web form on the EIA Open Data website can help translate version 1
-series IDs into version 2 routes. In addition, this package …
+series IDs into version 2 routes. In addition, this package provides a
+function `eia1_series` which can make requests using legacy series id’s.
+
+``` r
+eia1_series("ELEC.SALES.CO-RES.A")
+#> # A tibble: 22 x 7
+#>    period stateid stateDescription sectorid sectorName   sales `sales-units`    
+#>     <int> <chr>   <chr>            <chr>    <chr>        <dbl> <chr>            
+#>  1   2022 CO      Colorado         RES      residential 20834. million kilowatt~
+#>  2   2021 CO      Colorado         RES      residential 20625. million kilowatt~
+#>  3   2020 CO      Colorado         RES      residential 20483. million kilowatt~
+#>  4   2019 CO      Colorado         RES      residential 19405. million kilowatt~
+#>  5   2018 CO      Colorado         RES      residential 19287. million kilowatt~
+#>  6   2017 CO      Colorado         RES      residential 18615. million kilowatt~
+#>  7   2016 CO      Colorado         RES      residential 18834. million kilowatt~
+#>  8   2015 CO      Colorado         RES      residential 18385. million kilowatt~
+#>  9   2014 CO      Colorado         RES      residential 18093. million kilowatt~
+#> 10   2013 CO      Colorado         RES      residential 18529. million kilowatt~
+#> # ... with 12 more rows
+```
 
 ## Specifying Related Data via Parameters and Facets
 
