@@ -43,56 +43,70 @@ You can browse available datasets:
 ``` r
 library(eia2)
 
-eia2() |> eia2_resp_meta_routes()
-#> # A tibble: 14 x 3
-#>    id                name                            description                
-#>    <chr>             <chr>                           <chr>                      
-#>  1 coal              Coal                            "EIA coal energy data"     
-#>  2 crude-oil-imports Crude Oil Imports               "Crude oil imports by coun~
-#>  3 electricity       Electricity                     "EIA electricity survey da~
-#>  4 international     International                   "Country level production,~
-#>  5 natural-gas       Natural Gas                     "EIA natural gas survey da~
-#>  6 nuclear-outages   Nuclear Outages                 "EIA nuclear outages surve~
-#>  7 petroleum         Petroleum                       "EIA petroleum gas survey ~
-#>  8 seds              State Energy Data System (SEDS) "Estimated production, con~
-#>  9 steo              Short Term Energy Outlook       "Monthly short term (18 mo~
-#> 10 densified-biomass Densified Biomass               "EIA densified biomass dat~
-#> 11 total-energy      Total Energy                    "These data represent the ~
-#> 12 aeo               Annual Energy Outlook           "Annual U.S. projections u~
-#> 13 ieo               International Energy Outlook    "Annual international proj~
-#> 14 co2-emissions     State CO2 Emissions             "EIA CO2 Emissions data"
+eia2()
+#> $routes
+#>  [1] "coal"              "crude-oil-imports" "electricity"      
+#>  [4] "international"     "natural-gas"       "nuclear-outages"  
+#>  [7] "petroleum"         "seds"              "steo"             
+#> [10] "densified-biomass" "total-energy"      "aeo"              
+#> [13] "ieo"               "co2-emissions"
 ```
 
 And iteratively explore routes within a dataset, such as:
 
 ``` r
-elec_meta <- eia2("electricity")
-
-elec_meta |> eia2_resp_meta_routes() 
-#> # A tibble: 6 x 3
-#>   id                              name                                   descr~1
-#>   <chr>                           <chr>                                  <chr>  
-#> 1 retail-sales                    Electricity Sales to Ultimate Custome~ "Elect~
-#> 2 electric-power-operational-data Electric Power Operations (Annual and~ "Month~
-#> 3 rto                             Electric Power Operations (Daily and ~ "Hourl~
-#> 4 state-electricity-profiles      State Specific Data                    "State~
-#> 5 operating-generator-capacity    Inventory of Operable Generators       "Inven~
-#> 6 facility-fuel                   Electric Power Operations for Individ~ "Annua~
-#> # ... with abbreviated variable name 1: description
+eia2("electricity")
+#> $id
+#> [1] "electricity"
+#> 
+#> $name
+#> [1] "Electricity"
+#> 
+#> $description
+#> [1] "EIA electricity survey data"
+#> 
+#> $routes
+#> [1] "retail-sales"                    "electric-power-operational-data"
+#> [3] "rto"                             "state-electricity-profiles"     
+#> [5] "operating-generator-capacity"    "facility-fuel"
 ```
 
 When you get to the bottom of a route, there won’t be any further
-routes:
+routes, but you need to specify other parameters to retrieve data, such
+as which data columns to retrieve.
 
 ``` r
-eia2("electricity/retail-sales") |> eia2_resp_meta_routes()
-#> # A tibble: 0 x 0
+eia2("electricity/retail-sales")
+#> $id
+#> [1] "retail-sales"
+#> 
+#> $name
+#> [1] "Electricity Sales to Ultimate Customers"
+#> 
+#> $description
+#> [1] "Electricity sales to ultimate customer by state and sector (number of customers, average price, revenue, and megawatthours of sales).  \n    Sources: Forms EIA-826, EIA-861, EIA-861M"
+#> 
+#> $frequency
+#> [1] "monthly"   "quarterly" "annual"   
+#> 
+#> $facets
+#> [1] "stateid"  "sectorid"
+#> 
+#> $data
+#> [1] "revenue"   "sales"     "price"     "customers"
+#> 
+#> $startPeriod
+#> [1] "2001-01"
+#> 
+#> $endPeriod
+#> [1] "2022-12"
+#> 
+#> $defaultDateFormat
+#> [1] "YYYY-MM"
+#> 
+#> $defaultFrequency
+#> [1] "monthly"
 ```
-
-But to retrieve data, you also need to specify other parameters, such as
-the data columns you want to retrieve.
-
-(TODO: example of how to figure out valid data columns and filters)
 
 And finally download data such as:
 

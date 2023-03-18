@@ -1,4 +1,5 @@
 
+#' @export
 eia2_req_perform <- function(
     req, path = NULL, verbosity = NULL, mock = getOption("httr2_mock", NULL),
     rate = getOption("eia2_rate", 4),

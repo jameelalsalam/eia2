@@ -53,27 +53,19 @@ You can browse available datasets:
 ```{r}
 library(eia2)
 
-eia2() |> eia2_resp_meta_routes()
+eia2()
 ```
-
 
 And iteratively explore routes within a dataset, such as:
 
 ```{r}
-elec_meta <- eia2("electricity")
-
-elec_meta |> eia2_resp_meta_routes() 
+eia2("electricity")
 ```
-
-When you get to the bottom of a route, there won't be any further routes:
+When you get to the bottom of a route, there won't be any further routes, but you need to specify other parameters to retrieve data, such as which data columns to retrieve.
 
 ```{r}
-eia2("electricity/retail-sales") |> eia2_resp_meta_routes()
+eia2("electricity/retail-sales")
 ```
-
-But to retrieve data, you also need to specify other parameters, such as the data columns you want to retrieve.
-
-(TODO: example of how to figure out valid data columns and filters)
 
 And finally download data such as:
 

@@ -42,8 +42,8 @@ eia2 <- function(
     # data requests
     eia2_resp_data(resp)
   } else {
-    # in some cases, might want eia2_resp_routes
-    eia2_resp_sanitize(resp)
+    # default summary for metadata requests
+    eia2_resp_meta_summary(resp)
   }
 }
 
