@@ -76,12 +76,24 @@ elec_retail_sales_annual_data <-
 elec_retail_sales_annual_data
 ```
 
+A full API call can also specify facet filters and different start and end dates.
 
-``` r
+```{r}
+elec_retail_CO <- 
+  eia2("electricity/retail-sales",
+       frequency = "monthly",
+       facets = list(
+         stateid = c("CO", "WY")
+       ),
+       data_cols = c("revenue"),
+       start = "2020-01",
+       end = "2020-03")
 
-
-
+elec_retail_CO
 ```
+
+
+
 
 ## Moving from API version 1
 

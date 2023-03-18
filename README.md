@@ -131,9 +131,35 @@ elec_retail_sales_annual_data
 #> # ... with 4,990 more rows, and abbreviated variable name 1: `revenue-units`
 ```
 
+A full API call can also specify facet filters and different start and
+end dates.
+
 ``` r
+elec_retail_CO <- 
+  eia2("electricity/retail-sales",
+       frequency = "monthly",
+       facets = list(
+         stateid = c("CO", "WY")
+       ),
+       data_cols = c("revenue"),
+       start = "2020-01",
+       end = "2020-03")
 
-
+elec_retail_CO
+#> # A tibble: 36 x 7
+#>    period  stateid stateDescription sectorid sectorName     revenue revenue-un~1
+#>    <chr>   <chr>   <chr>            <chr>    <chr>            <dbl> <chr>       
+#>  1 2020-03 WY      Wyoming          IND      industrial      56.3   million dol~
+#>  2 2020-03 WY      Wyoming          OTH      other           NA     million dol~
+#>  3 2020-03 WY      Wyoming          RES      residential     28.4   million dol~
+#>  4 2020-03 WY      Wyoming          TRA      transportation   0     million dol~
+#>  5 2020-03 CO      Colorado         ALL      all sectors    434.    million dol~
+#>  6 2020-03 CO      Colorado         COM      commercial     161.    million dol~
+#>  7 2020-03 WY      Wyoming          ALL      all sectors    112.    million dol~
+#>  8 2020-03 CO      Colorado         TRA      transportation   0.710 million dol~
+#>  9 2020-03 CO      Colorado         RES      residential    177.    million dol~
+#> 10 2020-03 CO      Colorado         OTH      other           NA     million dol~
+#> # ... with 26 more rows, and abbreviated variable name 1: `revenue-units`
 ```
 
 ## Moving from API version 1

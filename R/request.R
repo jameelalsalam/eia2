@@ -11,8 +11,8 @@ eia2 <- function(
     facets = list(),
     data_cols = character(),
     frequency = NULL,
-    startPeriod = NULL,
-    endPeriod = NULL,
+    start = NULL,
+    end = NULL,
     sort = data.frame(
       column = "period",
       direction = "desc"
@@ -27,8 +27,8 @@ eia2 <- function(
     facets = facets,
     data_cols = data_cols,
     frequency = frequency,
-    startPeriod = startPeriod,
-    endPeriod = endPeriod,
+    start = start,
+    end = end,
     sort = sort,
     offset = offset,
     length = length,
@@ -64,8 +64,8 @@ eia2_req <- function(
     facets = list(),
     data_cols = character(),
     frequency = NULL,
-    startPeriod = NULL,
-    endPeriod = NULL,
+    start = NULL,
+    end = NULL,
     sort = data.frame(
       column = "period",
       direction = "desc"
@@ -107,8 +107,8 @@ eia2_req <- function(
     !!! params_facets,
     !!! params_data,
     frequency = frequency,
-    startPeriod = startPeriod,
-    endPeriod = endPeriod,
+    start = start,
+    end = end,
     !!! params_sort,
     offset = offset,
     length = length,
