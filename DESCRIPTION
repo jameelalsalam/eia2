@@ -15,11 +15,12 @@ RoxygenNote: 7.2.3
 Depends:
     R (>= 4.1)
 Imports: 
+    cli,
     curl,
     glue,
     httr2,
     jsonlite,
-    purrr,
+    purrr (>= 1.0.0),
     rlang,
     stringr,
     tibble,

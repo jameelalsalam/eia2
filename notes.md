@@ -57,6 +57,11 @@ Within targets pipelines results are cached, and it would be wonderful to have b
 
 Probably other ropensci API packages have examples of best-practice caching.
 
+## Dependencies:
+
+R >= 4.1.0 b/c of pipe
+purrr >= 1.0.0 b/c of pluck_depth
+
 
 ## Low-level helper to build array/nested query parameters
 

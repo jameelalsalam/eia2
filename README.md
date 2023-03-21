@@ -119,20 +119,20 @@ elec_retail_sales_annual_data <-
   eia2("electricity/retail-sales", frequency = "annual", data_cols = "revenue")
 
 elec_retail_sales_annual_data
-#> # A tibble: 5,000 x 7
-#>    period stateid stateDescription sectorid sectorName     revenue revenue-uni~1
+#> # A tibble: 5,000 × 7
+#>    period stateid stateDescription sectorid sectorName     revenue revenue-uni…¹
 #>     <int> <chr>   <chr>            <chr>    <chr>            <dbl> <chr>        
-#>  1   2022 ID      Idaho            RES      residential      1028. million doll~
-#>  2   2022 TN      Tennessee        RES      residential      5435. million doll~
-#>  3   2022 TN      Tennessee        OTH      other              NA  million doll~
-#>  4   2022 TN      Tennessee        IND      industrial       1570. million doll~
-#>  5   2022 TN      Tennessee        COM      commercial       4322. million doll~
-#>  6   2022 TN      Tennessee        ALL      all sectors     11327. million doll~
-#>  7   2022 SD      South Dakota     TRA      transportation      0  million doll~
-#>  8   2022 SD      South Dakota     RES      residential       646. million doll~
-#>  9   2022 SD      South Dakota     OTH      other              NA  million doll~
-#> 10   2022 SD      South Dakota     IND      industrial        259. million doll~
-#> # ... with 4,990 more rows, and abbreviated variable name 1: `revenue-units`
+#>  1   2022 ID      Idaho            RES      residential      1028. million doll…
+#>  2   2022 TN      Tennessee        RES      residential      5435. million doll…
+#>  3   2022 TN      Tennessee        OTH      other              NA  million doll…
+#>  4   2022 TN      Tennessee        IND      industrial       1570. million doll…
+#>  5   2022 TN      Tennessee        COM      commercial       4322. million doll…
+#>  6   2022 TN      Tennessee        ALL      all sectors     11327. million doll…
+#>  7   2022 SD      South Dakota     TRA      transportation      0  million doll…
+#>  8   2022 SD      South Dakota     RES      residential       646. million doll…
+#>  9   2022 SD      South Dakota     OTH      other              NA  million doll…
+#> 10   2022 SD      South Dakota     IND      industrial        259. million doll…
+#> # … with 4,990 more rows, and abbreviated variable name ¹​`revenue-units`
 ```
 
 A full API call can also specify facet filters and different start and
@@ -150,20 +150,20 @@ elec_retail_CO <-
        end = "2020-03")
 
 elec_retail_CO
-#> # A tibble: 36 x 7
-#>    period  stateid stateDescription sectorid sectorName     revenue revenue-un~1
+#> # A tibble: 36 × 7
+#>    period  stateid stateDescription sectorid sectorName     revenue revenue-un…¹
 #>    <chr>   <chr>   <chr>            <chr>    <chr>            <dbl> <chr>       
-#>  1 2020-03 WY      Wyoming          IND      industrial      56.3   million dol~
-#>  2 2020-03 WY      Wyoming          OTH      other           NA     million dol~
-#>  3 2020-03 WY      Wyoming          RES      residential     28.4   million dol~
-#>  4 2020-03 WY      Wyoming          TRA      transportation   0     million dol~
-#>  5 2020-03 CO      Colorado         ALL      all sectors    434.    million dol~
-#>  6 2020-03 CO      Colorado         COM      commercial     161.    million dol~
-#>  7 2020-03 WY      Wyoming          ALL      all sectors    112.    million dol~
-#>  8 2020-03 CO      Colorado         TRA      transportation   0.710 million dol~
-#>  9 2020-03 CO      Colorado         RES      residential    177.    million dol~
-#> 10 2020-03 CO      Colorado         OTH      other           NA     million dol~
-#> # ... with 26 more rows, and abbreviated variable name 1: `revenue-units`
+#>  1 2020-03 WY      Wyoming          IND      industrial      56.3   million dol…
+#>  2 2020-03 WY      Wyoming          OTH      other           NA     million dol…
+#>  3 2020-03 WY      Wyoming          RES      residential     28.4   million dol…
+#>  4 2020-03 WY      Wyoming          TRA      transportation   0     million dol…
+#>  5 2020-03 CO      Colorado         ALL      all sectors    434.    million dol…
+#>  6 2020-03 CO      Colorado         COM      commercial     161.    million dol…
+#>  7 2020-03 WY      Wyoming          ALL      all sectors    112.    million dol…
+#>  8 2020-03 CO      Colorado         TRA      transportation   0.710 million dol…
+#>  9 2020-03 CO      Colorado         RES      residential    177.    million dol…
+#> 10 2020-03 CO      Colorado         OTH      other           NA     million dol…
+#> # … with 26 more rows, and abbreviated variable name ¹​`revenue-units`
 ```
 
 ## Moving from API version 1
@@ -176,20 +176,20 @@ function `eia1_series` which can make requests using legacy series id’s.
 
 ``` r
 eia1_series("ELEC.SALES.CO-RES.A")
-#> # A tibble: 22 x 7
+#> # A tibble: 22 × 7
 #>    period stateid stateDescription sectorid sectorName   sales `sales-units`    
 #>     <int> <chr>   <chr>            <chr>    <chr>        <dbl> <chr>            
-#>  1   2022 CO      Colorado         RES      residential 20834. million kilowatt~
-#>  2   2021 CO      Colorado         RES      residential 20625. million kilowatt~
-#>  3   2020 CO      Colorado         RES      residential 20483. million kilowatt~
-#>  4   2019 CO      Colorado         RES      residential 19405. million kilowatt~
-#>  5   2018 CO      Colorado         RES      residential 19287. million kilowatt~
-#>  6   2017 CO      Colorado         RES      residential 18615. million kilowatt~
-#>  7   2016 CO      Colorado         RES      residential 18834. million kilowatt~
-#>  8   2015 CO      Colorado         RES      residential 18385. million kilowatt~
-#>  9   2014 CO      Colorado         RES      residential 18093. million kilowatt~
-#> 10   2013 CO      Colorado         RES      residential 18529. million kilowatt~
-#> # ... with 12 more rows
+#>  1   2022 CO      Colorado         RES      residential 20834. million kilowatt…
+#>  2   2021 CO      Colorado         RES      residential 20625. million kilowatt…
+#>  3   2020 CO      Colorado         RES      residential 20483. million kilowatt…
+#>  4   2019 CO      Colorado         RES      residential 19405. million kilowatt…
+#>  5   2018 CO      Colorado         RES      residential 19287. million kilowatt…
+#>  6   2017 CO      Colorado         RES      residential 18615. million kilowatt…
+#>  7   2016 CO      Colorado         RES      residential 18834. million kilowatt…
+#>  8   2015 CO      Colorado         RES      residential 18385. million kilowatt…
+#>  9   2014 CO      Colorado         RES      residential 18093. million kilowatt…
+#> 10   2013 CO      Colorado         RES      residential 18529. million kilowatt…
+#> # … with 12 more rows
 ```
 
 ## Specifying Related Data via Parameters and Facets
