@@ -5,6 +5,11 @@
 #' @return data
 #' @export
 eia1_series <- function(series_id) {
+
+  # TODO: add offset and length to eia1_series
+  # TODO: check if this endpoint respects sort order
+  # 2023-03-20: endpoint appears NOT to respect `start` and `end` parameters
+
   req <- eia1_series_req(series_id)
 
   resp <- eia2_req_perform(req)

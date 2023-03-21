@@ -85,6 +85,7 @@ eia2_req <- function(
     params_data <- list(data = NULL)
   }
 
+  # expand complex parameters
   if (length(facets) > 0) {
     params_facets <- query_expand_facets(list(facets = facets))
   } else {
@@ -96,7 +97,6 @@ eia2_req <- function(
   } else {
     params_sort <- list(sort = NULL)
   }
-
 
   # set to NULL for API defaults
   if (length == 5000) length <- NULL

@@ -6,11 +6,15 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The `eia2` package provides functions to download data from the US
-Energy Information Administration Open Data API version 2.
+The `eia2` package provides functions to download data from the [US
+Energy Information Administration Open Data API version
+2](%22https://www.eia.gov/opendata/%22).
 
 Using the EIA API (via this package or other means) requires a
 registered API key.
+
+The EIA provides a data browser and documentation of API concepts that
+is helpful to understanding usage of this package.
 
 ## Installation
 
