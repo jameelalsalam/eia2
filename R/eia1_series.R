@@ -1,14 +1,18 @@
 
 
-#' Request Data Using Legacy APIv1 Series ID
+#' Request Data Using Legacy APIv1 Series ID Compatibility Endpoint
 #'
-#' @return data
+#' @param series_id EIA APIv1 series ID (length 1 character)
+#'
+#' @return tibble with series data, or for eia1_series_req a request object
 #' @export
 eia1_series <- function(series_id) {
 
   # TODO: add offset and length to eia1_series
   # TODO: check if this endpoint respects sort order
   # 2023-03-20: endpoint appears NOT to respect `start` and `end` parameters
+
+  stopifnot(length(series_id) == 1)
 
   req <- eia1_series_req(series_id)
 
@@ -17,9 +21,7 @@ eia1_series <- function(series_id) {
   eia2_resp_data(resp)
 }
 
-#' Request Data Using Legacy APIv1 Series ID
-#'
-#' @return request object
+#' @rdname eia1_series
 #' @export
 eia1_series_req <- function(series_id) {
 
