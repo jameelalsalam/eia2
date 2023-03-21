@@ -122,7 +122,8 @@ eia2_req <- function(
     req_url_path_append(dataset) |>
     req_url_query(!!! all_params) |>
     #req_url_query(api_key = api_key) |>
-    req_user_agent("eia2 (http://github.com/jameelalsalam/eia2)")
+    req_user_agent("eia2 (http://github.com/jameelalsalam/eia2)") |>
+    req_error(body = eia2_error_msg)
 
   req
 }

@@ -39,3 +39,13 @@ eia2_resp_sanitize <- function(resp) {
 
   out
 }
+
+eia2_error_msg <- function(eia_resp) {
+  body <- httr2::resp_body_json(eia_resp)
+
+  e_msg <- c(
+    "x" = body$error
+  )
+
+  e_msg
+}
