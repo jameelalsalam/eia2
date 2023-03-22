@@ -8,7 +8,7 @@
 
 The `eia2` package provides functions to download data from the [US
 Energy Information Administration Open Data API version
-2](%22https://www.eia.gov/opendata/%22).
+2](https://www.eia.gov/opendata/).
 
 Using the EIA API (via this package or other means) requires a
 registered API key.
@@ -19,7 +19,7 @@ is helpful to understanding usage of this package.
 ## Installation
 
 You can install the development version of eia2 from
-[GitHub](https://github.com/) with:
+[GitHub](https://github.com/jameelalsalam/eia2) with:
 
 ``` r
 # install.packages("devtools")
