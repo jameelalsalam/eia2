@@ -7,7 +7,7 @@
 #'
 #' @export
 eia2 <- function(
-    dataset= "",
+    route= "",
     facets = list(),
     data_cols = character(),
     frequency = NULL,
@@ -23,7 +23,7 @@ eia2 <- function(
     api_key = Sys.getenv("EIA_KEY")
 ) {
   req <- eia2_req(
-    dataset = dataset,
+    route = route,
     facets = facets,
     data_cols = data_cols,
     frequency = frequency,
@@ -38,7 +38,7 @@ eia2 <- function(
 
   resp <- eia2_req_perform(req, api_key = api_key)
 
-  if (length(data_cols) > 0 | stringr::str_detect(dataset, "/data$")) {
+  if (length(data_cols) > 0 | stringr::str_detect(route, "/data$")) {
     # data requests
     eia2_resp_data(resp)
   } else {
@@ -60,7 +60,7 @@ eia2 <- function(
 #'
 #' @export
 eia2_req <- function(
-    dataset= "",
+    route= "",
     facets = list(),
     data_cols = character(),
     frequency = NULL,
@@ -79,7 +79,7 @@ eia2_req <- function(
   base_url <- "https://api.eia.gov/"
 
   if (length(data_cols) > 0) {
-    if (!stringr::str_detect(dataset, "/data$")) dataset <- paste0(dataset, "/data")
+    if (!stringr::str_detect(route, "/data$")) route <- paste0(route, "/data")
     params_data <- query_expand_data(list(data = data_cols))
   } else {
     params_data <- list(data = NULL)
@@ -121,7 +121,7 @@ eia2_req <- function(
 
   req <- request(base_url) |>
     req_url_path_append("v2") |>
-    req_url_path_append(dataset) |>
+    req_url_path_append(route) |>
     req_url_query(!!! all_params) |>
     #req_url_query(api_key = api_key) |>
     req_user_agent("eia2 (http://github.com/jameelalsalam/eia2)") |>
