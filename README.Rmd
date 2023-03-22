@@ -118,3 +118,8 @@ The EIA version 2 API organizes dataset topics using routes, and then allows spe
 
 eia2 is based on previous work by Matthew Leonawicz on the [eia](https://github.com/ropensci/eia) package. It has benefited from many useful packages and resources including httr2, ropensci package guide, and HTTP testing for R.
 
+
+## Disclaimer
+
+This package and its authors are not affiliated with the Energy Information Administration. If you reproduce data it should include an acknowledgement with the publication date, such as: "Source: U.S. Energy Information Administration (Oct 2008)." For more information, please see [EIA's Copyrights and Reuse page](https://www.eia.gov/about/copyrights_reuse.php). 
+
