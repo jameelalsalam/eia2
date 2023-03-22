@@ -86,12 +86,14 @@ eia2_req <- function(
   }
 
   # expand complex parameters
+  check_facets_param(facets)
   if (length(facets) > 0) {
     params_facets <- query_expand_facets(list(facets = facets))
   } else {
     params_facets <- list(facets = NULL)
   }
 
+  check_sort_param(sort)
   if (length(sort) > 0) {
     params_sort <- query_expand_sort(list(sort = sort))
   } else {

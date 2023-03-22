@@ -5,6 +5,11 @@
 #' @param series_id EIA APIv1 series ID (length 1 character)
 #'
 #' @return tibble with series data, or for eia1_series_req a request object
+#'
+#' @examples
+#' \dontrun{
+#' eia1_series("ELEC.SALES.CO-RES.A")
+#' }
 #' @export
 eia1_series <- function(series_id) {
 
