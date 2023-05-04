@@ -41,7 +41,7 @@ Ensure your API key is available by setting it as an environment variable. You c
 ``` r
 library(eia2)
 SetEIAPIKey("your EIA api key")
-SetEIAPIKey(GGBOBasePackage::EIA_key())
+
 ```
 
 Immediately afterwards you can retrieve the active api key, running `SGetEIAAPIKey()`.
