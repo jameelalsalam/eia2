@@ -20,7 +20,7 @@ eia2 <- function(
     offset = 0,
     length = 5000,
     out = "json",
-    api_key = Sys.getenv("EIA_KEY")
+    api_key = GetEIAAPIKey() #Sys.getenv("EIA_KEY")
 ) {
   req <- eia2_req(
     route = route,
