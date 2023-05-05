@@ -1,4 +1,15 @@
 
+#' Perform an eia2 request
+#'
+#' @param req eia2 request object
+#' @param path optional path to save request response
+#' @param verbosity passed to httr2::request_perform
+#' @param mock passed to httr2::request_perform
+#' @param rate maximum request rate in requests per second, passed to httr2::request_perform
+#' @param api_key your api authentication key
+#'
+#' The api_key is not added to the request object until the request is performed.
+#'
 #' @export
 eia2_req_perform <- function(
     req, path = NULL, verbosity = NULL, mock = getOption("httr2_mock", NULL),

@@ -10,6 +10,7 @@
 #' \dontrun{
 #' eia1_series("ELEC.SALES.CO-RES.A")
 #' }
+#'
 #' @export
 eia1_series <- function(series_id) {
 

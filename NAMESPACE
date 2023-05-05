@@ -2,7 +2,6 @@
 
 export(eia1_series)
 export(eia1_series_req)
-export(eia1_translate)
 export(eia2)
 export(eia2_facet)
 export(eia2_req)
@@ -14,3 +13,4 @@ import(httr2)
 import(purrr)
 importFrom(cli,cli_abort)
 importFrom(jsonlite,unbox)
+importFrom(rlang,abort)

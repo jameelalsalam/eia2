@@ -11,7 +11,8 @@ req_big <- eia2_req(
   data_cols = "revenue",
   facets = list(
     stateid = c("CO", "CA", "TX", "NH", "MN", "VA", "IL", "MD", "AK")
-  ))
+  ),
+  length = 10000)
 
 resp_big_1 <- eia2_req_perform(req_big)
 

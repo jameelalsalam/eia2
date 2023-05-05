@@ -6,15 +6,16 @@
 #' Expand/Flatted Nested Objects to be Used as url query parameters
 #'
 #' @param params named list or character/numeric vector
+#' @param auto_unbox whether to unbox lists
 #'
 #' @return a flat list of name-value pairs, whose values are length-1 atomic
 query_expand_params <- function(params, auto_unbox = FALSE) {
+
   # should return a flat list of name-value pairs
   # therefore, first level must be named
   # jsonlite translates a top-level character vector into an unnamed array
   # but because character/numeric vectors are a natural way to express query
   # parameters, these structures are automatically translated to lists
-
 
   stopifnot(rlang::is_named(params)) #maybe is_named2?
   if (is.character(params)) params <- as.list(params)

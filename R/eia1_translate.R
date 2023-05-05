@@ -3,20 +3,22 @@
 #'
 #' @param series_id character vector of series IDs
 #'
-#TODO: should these be returned as httr2 reqeust objects? or as a different data format?
+#' Work In Progress -- doesn't work yet.
 #'
 #' @return list of v2 request specifications (same format as returned by API)
 #'
 #' @examples
+#' \dontrun{
 #' series_id <- c("TOTAL.TECCEUS.A", "TOTAL.TERCEUS.A")
 #' req_specs_v2 <- eia1_translate(series_id)
-#' @export
+#' }
+#'
 eia1_translate <- function(series_id) {
 
   seriesid_routes <- paste("seriesid", series_id, sep = "/")
 
-  # limit to 1 / second
-  list_reqs <- purrr::map(seriesid_routes, ~eia2_req(.x) |> req_throttle(rate = 1))
+  # limit to 4 / second (but b/c of response time, in practice slower)
+  list_reqs <- purrr::map(seriesid_routes, ~eia2_req(.x) |> req_throttle(rate = 4))
 
   list_resps <- list()
   for (i in seq_along(list_reqs)) {

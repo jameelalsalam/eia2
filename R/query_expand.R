@@ -3,9 +3,10 @@
 # but once they are expanded, they work.
 
 
-# from httr2:
+# from httr2 (not used):
+#' @importFrom rlang abort
 query_build <- function(x) {
-  if (!is_list(x) || (!is_named(x) && length(x) > 0)) {
+  if (!rlang::is_list(x) || (!rlang::is_named(x) && length(x) > 0)) {
     abort("Query must be a named list")
   }
 
@@ -26,7 +27,7 @@ query_build <- function(x) {
   x[is_double] <- map_chr(x[is_double], format, scientific = FALSE)
 
   names <- curl::curl_escape(names(x))
-  values <- map_chr(x, url_escape)
+  values <- map_chr(x, httr2:::url_escape)
 
   paste0(names, "=", values, collapse = "&")
 }
@@ -46,6 +47,7 @@ query_build <- function(x) {
 #' x <- list(data = c("price", "revenue"))
 #' query_expand_data(x)
 #'
+#' @noRd
 query_expand_data <- function(x) {
 
   #component is named, length-1:
@@ -71,6 +73,7 @@ query_expand_data <- function(x) {
 #' x <- list(facets = list(stateid = c("CA", "CO"), scenarioid = "ref"))
 #' query_expand_facets(x)
 #'
+#' @noRd
 query_expand_facets <- function(x) {
 
   #component is named, length-1:

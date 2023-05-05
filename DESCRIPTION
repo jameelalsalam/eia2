@@ -1,6 +1,6 @@
 Package: eia2
 Title: Wrapper for the US Energy Information Administration API Version 2
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: c(
     person("Jameel", "Alsalam", email = "jalsalam@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-9801-5558")),
@@ -17,14 +17,12 @@ Depends:
 Imports: 
     cli,
     curl,
-    glue,
     httr2,
     jsonlite,
     purrr (>= 1.0.0),
     rlang,
     stringr,
-    tibble,
-    vctrs
+    tibble
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

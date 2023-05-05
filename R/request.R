@@ -2,8 +2,22 @@
 
 #' Retrieve data from the EIA API
 #'
-#' #TODO: memoisation layer
-#' #TODO: tidying of output data
+#' @param route to base dataset
+#' @param facets list of facet filter specifications
+#' @param data_cols names of data columns to retrieve
+#' @param frequency data frequency
+#' @param start filter start of data requested
+#' @param end filter end of data requested
+#' @param sort data frame specifying sorting
+#' @param offset starting position, for paged results
+#' @param length number of data points to retrieve
+#' @param out output data format, "json" or "xml"
+#' @param api_key character api key
+#'
+#' @examples
+#' \dontrun{
+#' eia2_req("electricity/retail-sales", data_cols = "price")
+#' }
 #'
 #' @export
 eia2 <- function(
@@ -50,13 +64,24 @@ eia2 <- function(
 
 #' Request data from EIA API version 2
 #'
+#' @param route to base dataset
+#' @param facets list of facet filter specifications
+#' @param data_cols names of data columns to retrieve
+#' @param frequency data frequency
+#' @param start filter start of data requested
+#' @param end filter end of data requested
+#' @param sort data frame specifying sorting
+#' @param offset starting position, for paged results
+#' @param length number of data points to retrieve
+#' @param out output data format, "json" or "xml"
+#' @param api_key character api key
+#'
 #' @examples
 #' eia2_req("electricity")
 #' eia2_req("electricity/retail-sales")
 #' eia2_req("electricity/retail-sales/data")
 #' eia2_req("electricity/retail-sales/data", data_cols = "price")
 #' eia2_req("electricity/retail-sales", data_cols = "price") # same as one above
-#'
 #'
 #' @export
 eia2_req <- function(
