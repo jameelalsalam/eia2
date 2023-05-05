@@ -45,8 +45,9 @@ usethis::edit_r_environ("user")
 And adding a line such as:
 EIA_KEY=<YOUR-KEY-HERE>
 
-After restarting, running `Sys.getenv("EIA_KEY")` should return your key.
+After restarting, running `Sys.getenv("EIA_KEY")` or `eia_get_key()` should return your key.
 
+Alternatively, your key can be stored in the package environment or options using `eia_set_key()`. For security, make sure you do not record your API key in files tracked by git or your .Rhistory.
 
 ## Explore Available Data
 

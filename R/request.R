@@ -34,7 +34,7 @@ eia2 <- function(
     offset = 0,
     length = 5000,
     out = "json",
-    api_key = Sys.getenv("EIA_KEY")
+    api_key = eia_get_key()
 ) {
   req <- eia2_req(
     route = route,
@@ -74,7 +74,7 @@ eia2 <- function(
 #' @param offset starting position, for paged results
 #' @param length number of data points to retrieve
 #' @param out output data format, "json" or "xml"
-#' @param api_key character api key
+#' @param api_key character api key, or NULL to omit
 #'
 #' @examples
 #' eia2_req("electricity")

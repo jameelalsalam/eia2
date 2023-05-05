@@ -1,6 +1,7 @@
 
 # Notes on eia2 development
 
+- support keyring for storing api_key securely
 - roundtrip request -> perform -> extract request from response
 - test suite (including tests that run on CRAN)
   - test of low-level query_params_expand
