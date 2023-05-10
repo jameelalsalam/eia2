@@ -5,6 +5,7 @@
 
 # from httr2 (not used):
 #' @importFrom rlang abort
+#' @noRd
 query_build <- function(x) {
   if (!rlang::is_list(x) || (!rlang::is_named(x) && length(x) > 0)) {
     abort("Query must be a named list")
@@ -34,9 +35,9 @@ query_build <- function(x) {
 
 #' Expand `data` parameter for EIA APIv2
 #'
-#' @param x character vector of column names to return
+#' @param x A character vector of column names to return.
 #'
-#' @return list of atomic length-1 parameter pairs
+#' @return A list of atomic length-1 parameter pairs.
 #'
 #' The data parameter specifies the data value columns to return. It is an
 #' array of names. The expansion is done as an ordered array.
@@ -62,6 +63,7 @@ query_expand_data <- function(x) {
 
   query_expand_params(x)
 }
+
 
 #' Expand `facets` parameter for EIA APIv2
 #'
@@ -92,6 +94,9 @@ query_expand_facets <- function(x) {
 }
 
 
+#' Expand sort parameter for EIA APIv2
+#'
+#' @noRd
 query_expand_sort <- function(x) {
   stopifnot(length(x) == 1)
   stopifnot(names(x) == "sort")

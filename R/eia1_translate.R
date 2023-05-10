@@ -13,6 +13,7 @@
 #' req_specs_v2 <- eia1_translate(series_id)
 #' }
 #'
+#' @noRd
 eia1_translate <- function(series_id) {
 
   seriesid_routes <- paste("seriesid", series_id, sep = "/")

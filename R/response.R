@@ -1,5 +1,15 @@
-# response.R
-
+#' Extract formatted data from responses
+#'
+#' @description
+#' If you use the stepwise workflow of `eia2_request()` -> `eia2_req_perform()`,
+#' then the next step is to extract useful data from the responses.
+#'
+#' For data requests, `eia2_resp_data()` returns body data as a tibble.
+#'
+#' For metadata requests:
+#' * `eia2_resp_meta_routes()` returns metadata on child routes as a tibble.
+#' * `eia2_resp_meta_summary()` returns a summary metadata lists.
+#'
 #' @export
 eia2_resp_data <- function(eia_resp) {
 
@@ -13,6 +23,7 @@ eia2_resp_data <- function(eia_resp) {
   data
 }
 
+#' @describeIn eia2_resp_data
 #' @export
 eia2_resp_meta_routes <- function(eia_resp) {
 
@@ -26,7 +37,7 @@ eia2_resp_meta_routes <- function(eia_resp) {
   routes
 }
 
-
+#' @noRd
 eia2_resp_body <- function(eia_resp) {
   out <- eia_resp |>
     httr2::resp_body_json()
@@ -34,6 +45,7 @@ eia2_resp_body <- function(eia_resp) {
   out$response
 }
 
+#' @describeIn eia2_resp_data
 #' @export
 eia2_resp_meta_summary <- function(eia_resp) {
 
@@ -54,6 +66,7 @@ eia2_resp_meta_summary <- function(eia_resp) {
   resp_meta_summary
 }
 
+#' @noRd
 eia2_resp_total <- function(eia_resp) {
 
   json_body_string <- eia_resp |>

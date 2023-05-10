@@ -1,14 +1,21 @@
 
 #' Perform an eia2 request
 #'
-#' @param req eia2 request object
-#' @param path optional path to save request response
-#' @param verbosity passed to httr2::request_perform
-#' @param mock passed to httr2::request_perform
-#' @param rate maximum request rate in requests per second, passed to httr2::request_perform
-#' @param api_key your api authentication key
+#' @description
+#' After preparing a [request], call `eia2_req_perform()` to perform it, fetching
+#' the results back to R as a [response].
 #'
-#' The api_key is not added to the request object until the request is performed.
+#' `eia2_req_perform()` wraps `httr2::req_perform()`. The api_key is not added
+#' to the request object until the request is performed. Additionally, it
+#' applies rate limit behavior to comply with API guidelines.
+#'
+#' @param req An eia2 [request].
+#' @param path Optionally, path to save body of the response.
+#' @param verbosity How much information to print? This is an integer from 0 to 3,
+#'  passed to `httr2::request_perform()`.
+#' @param mock A mocking function. Passed to `httr2::request_perform()`.
+#' @param rate Maximum request rate in requests per second, passed to `httr2::req_throttle()`.
+#' @param api_key Your API authentication key.
 #'
 #' @export
 eia2_req_perform <- function(
@@ -25,7 +32,13 @@ eia2_req_perform <- function(
   resp
 }
 
-# request with API key removed from url and request object in body
+
+#' Remove the API key from an eia2 response
+#'
+#' By default, the API key appears both in the url and in the body of the
+#' response describing the request.
+#'
+#' @noRd
 eia2_resp_sanitize <- function(resp) {
 
   out <- resp
@@ -51,6 +64,11 @@ eia2_resp_sanitize <- function(resp) {
   out
 }
 
+#' Extract useful error message text from an an error HTTP response
+#'
+#' Used in constructing eia2 requests.
+#'
+#' @noRd
 eia2_error_msg <- function(eia_resp) {
   body <- httr2::resp_body_json(eia_resp)
 
