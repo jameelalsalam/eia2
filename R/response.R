@@ -10,6 +10,8 @@
 #' * `eia2_resp_meta_routes()` returns metadata on child routes as a tibble.
 #' * `eia2_resp_meta_summary()` returns a summary metadata lists.
 #'
+#' @param eia_resp The response object.
+#'
 #' @export
 eia2_resp_data <- function(eia_resp) {
 
@@ -23,7 +25,7 @@ eia2_resp_data <- function(eia_resp) {
   data
 }
 
-#' @describeIn eia2_resp_data
+#' @rdname eia2_resp_data
 #' @export
 eia2_resp_meta_routes <- function(eia_resp) {
 
@@ -45,7 +47,7 @@ eia2_resp_body <- function(eia_resp) {
   out$response
 }
 
-#' @describeIn eia2_resp_data
+#' @rdname eia2_resp_data
 #' @export
 eia2_resp_meta_summary <- function(eia_resp) {
 

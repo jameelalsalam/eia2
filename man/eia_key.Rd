@@ -24,7 +24,7 @@ Set and get API key
 \details{
 Setter and getter helpers allow you to store your EIA API key in one of three ways.
 Their use is optional. You can always pass the API key string to the \code{key} argument of any package function that requires it,
-but you do not have to.
+although it is recommended to avoid exposing API key in scripts.
 
 By default the \code{key} argument for these functions is \code{key = eia_get_key()}.
 If your key has been stored in a manner that can be retrieved,

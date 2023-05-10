@@ -2,9 +2,18 @@
 % Please edit documentation in R/response.R
 \name{eia2_resp_data}
 \alias{eia2_resp_data}
+\alias{eia2_resp_meta_routes}
+\alias{eia2_resp_meta_summary}
 \title{Extract formatted data from responses}
 \usage{
 eia2_resp_data(eia_resp)
+
+eia2_resp_meta_routes(eia_resp)
+
+eia2_resp_meta_summary(eia_resp)
+}
+\arguments{
+\item{eia_resp}{The response object.}
 }
 \description{
 If you use the stepwise workflow of \code{eia2_request()} -> \code{eia2_req_perform()},

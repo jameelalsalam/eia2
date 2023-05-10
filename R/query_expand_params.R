@@ -2,13 +2,14 @@
 # query_expand_params.R
 
 
-
-#' Expand/Flatted Nested Objects to be Used as url query parameters
+#' Expand/flatten nested objects to be used as url query parameters
 #'
-#' @param params named list or character/numeric vector
-#' @param auto_unbox whether to unbox lists
+#' @param params named list or character/numeric vector.
+#' @param auto_unbox logical, whether to unbox lists.
 #'
-#' @return a flat list of name-value pairs, whose values are length-1 atomic
+#' @return A flat list of name-value pairs, whose values are length-1 atomic.
+#'
+#' @noRd
 query_expand_params <- function(params, auto_unbox = FALSE) {
 
   # should return a flat list of name-value pairs
@@ -27,7 +28,6 @@ query_expand_params <- function(params, auto_unbox = FALSE) {
   res
 }
 
-if (FALSE) {library(jsonlite); library(purrr)}
 
 param_node_type <- function(x, auto_unbox = FALSE) {
 

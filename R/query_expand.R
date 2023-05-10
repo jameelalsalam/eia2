@@ -4,34 +4,34 @@
 
 
 # from httr2 (not used):
-#' @importFrom rlang abort
-#' @noRd
-query_build <- function(x) {
-  if (!rlang::is_list(x) || (!rlang::is_named(x) && length(x) > 0)) {
-    abort("Query must be a named list")
-  }
 
-  x <- compact(x)
-  if (length(x) == 0) {
-    return(NULL)
-  }
+# query_build <- function(x) {
+#   if (!rlang::is_list(x) || (!rlang::is_named(x) && length(x) > 0)) {
+#     abort("Query must be a named list")
+#   }
+#
+#   x <- compact(x)
+#   if (length(x) == 0) {
+#     return(NULL)
+#   }
+#
+#   bad_val <- lengths(x) != 1 | !map_lgl(x, is_atomic)
+#   if (any(bad_val)) {
+#     abort(c(
+#       "Query parameters must be length 1 atomic vectors.",
+#       paste0("Problems: ", paste0(names(x)[bad_val], collapse =", "))
+#     ))
+#   }
+#
+#   is_double <- map_lgl(x, is.double)
+#   x[is_double] <- map_chr(x[is_double], format, scientific = FALSE)
+#
+#   names <- curl::curl_escape(names(x))
+#   values <- map_chr(x, httr2:::url_escape)
+#
+#   paste0(names, "=", values, collapse = "&")
+# }
 
-  bad_val <- lengths(x) != 1 | !map_lgl(x, is_atomic)
-  if (any(bad_val)) {
-    abort(c(
-      "Query parameters must be length 1 atomic vectors.",
-      paste0("Problems: ", paste0(names(x)[bad_val], collapse =", "))
-    ))
-  }
-
-  is_double <- map_lgl(x, is.double)
-  x[is_double] <- map_chr(x[is_double], format, scientific = FALSE)
-
-  names <- curl::curl_escape(names(x))
-  values <- map_chr(x, httr2:::url_escape)
-
-  paste0(names, "=", values, collapse = "&")
-}
 
 #' Expand `data` parameter for EIA APIv2
 #'

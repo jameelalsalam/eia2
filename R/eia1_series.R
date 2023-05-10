@@ -2,7 +2,7 @@
 
 #' Request Data Using Legacy APIv1 Series ID Compatibility Endpoint
 #'
-#' @param series_id EIA APIv1 series ID (length 1 character)
+#' @param series_id The EIA APIv1 series ID (length 1 character).
 #'
 #' @return tibble with series data, or for eia1_series_req a request object
 #'

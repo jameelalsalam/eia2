@@ -46,7 +46,11 @@ Retrieve data from the EIA API
 }
 \examples{
 \dontrun{
-eia2_req("electricity/retail-sales", data_cols = "price")
+eia2("electricity/retail-sales", data_cols = "price", length = 10)
 }
 
+}
+\seealso{
+\link{request}, \code{\link[=eia2_req_perform]{eia2_req_perform()}}, and \code{\link[=eia2_resp_data]{eia2_resp_data()}} provide
+a stepwise workflow to build a request, perform it, and extract formatted data.
 }

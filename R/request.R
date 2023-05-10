@@ -14,9 +14,12 @@
 #' @param out output data format, "json" or "xml"
 #' @param api_key character api key
 #'
+#' @seealso [request], [eia2_req_perform()], and [eia2_resp_data()] provide
+#' a stepwise workflow to build a request, perform it, and extract formatted data.
+#'
 #' @examples
 #' \dontrun{
-#' eia2_req("electricity/retail-sales", data_cols = "price")
+#' eia2("electricity/retail-sales", data_cols = "price", length = 10)
 #' }
 #'
 #' @export
@@ -82,6 +85,8 @@ eia2 <- function(
 #' eia2_req("electricity/retail-sales/data")
 #' eia2_req("electricity/retail-sales/data", data_cols = "price")
 #' eia2_req("electricity/retail-sales", data_cols = "price") # same as one above
+#'
+#' @rdname request
 #'
 #' @export
 eia2_req <- function(

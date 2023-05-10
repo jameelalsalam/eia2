@@ -4,7 +4,7 @@
 \name{eia2-package}
 \title{eia2: Wrapper for the US Energy Information Administration API Version 2}
 \description{
-What the package does (one paragraph).
+Provides API access to the open data API from the US Energy Information Administration (EIA) \url{https://www.eia.gov/opendata/}. Use of the API requires a free API key. The package includes functions to request data using API parameters including data columns, facets, start and end dates, and sorting. The version 2 API provides a compatibility endpoint for retrieving data using version 1 API series ID's.
 }
 \author{
 \strong{Maintainer}: Jameel Alsalam \email{jalsalam@gmail.com} (\href{https://orcid.org/0000-0001-9801-5558}{ORCID})

@@ -10,7 +10,7 @@ eia1_series(series_id)
 eia1_series_req(series_id)
 }
 \arguments{
-\item{series_id}{EIA APIv1 series ID (length 1 character)}
+\item{series_id}{The EIA APIv1 series ID (length 1 character).}
 }
 \value{
 tibble with series data, or for eia1_series_req a request object
