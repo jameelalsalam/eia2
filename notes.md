@@ -9,18 +9,18 @@
   - tests for API assumptions (that do not run on CRAN)
   - tests along the lines of DB test suite
   - ensure API credentials don't leak
-- CI / Github Actions
+X CI / Github Actions
 - caching of API requests
 - README
-- Suggested citation for EIA data with citHeader and citEntry? https://devguide.ropensci.org/building.html
+X Suggested citation for EIA data with citHeader and citEntry? https://devguide.ropensci.org/building.html
 - Getting started vignette
 - Further split low-level function (that is flexible, close to API vocab, and won't break) from high-level UI functions
 - Low-level helper for query parameters
 - progress bar?: https://github.com/r-lib/httr2/issues/20
 - autocompletion of available metadata?
 - shiny app like the query browser?
-- pkgdown
-- test coverage
+X pkgdown
+X test coverage
 - ropensci package dev guide
 - print method for friendlier response? (subtype of httr2 response type?)
 - pretty printing with e.g., cli?
