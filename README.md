@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/jameelalsalam/eia2/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jameelalsalam/eia2/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/jameelalsalam/eia2/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jameelalsalam/eia2?branch=main)
 <!-- badges: end -->
 
 The `eia2` package provides functions to download data from the [US
