@@ -2,3 +2,27 @@ url: https://jameelalsalam.github.io/eia2/
 template:
   bootstrap: 5
 
+reference:
+- title: "API Endpoints"
+  desc: "High-level functions to retrieve data from EIA API endpoints in one step."
+  contents:
+  - eia2
+  - eia1_series
+- title: "Lower Level Workflow"
+  desc: "Control each step: build requests -> perform requests -> extract data"
+- subtitle: "Build Requests"
+  contents:
+  - eia2_req
+  - eia1_series_req
+  - eia2_facet
+- subtitle: "Perform Requests"
+  contents:
+  - eia2_req_perform
+- subtitle: "Extract Data"
+  contents:
+  - eia2_resp_data
+- title: "Utilities"
+  contents:
+  - eia_key
+
+
