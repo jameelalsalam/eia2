@@ -45,4 +45,14 @@ data <- dplyr::bind_rows(!!!resp_big_data)
 nrow(data)
 total_n
 
+###
+###
+
+all_data <- eia2_data_big(
+  "electricity/retail-sales",
+  data_cols = "revenue",
+  facets = list(
+    stateid = c("CO", "CA", "TX", "NH", "MN", "VA", "IL", "MD", "AK")
+  ),
+  length = 10000)
 
