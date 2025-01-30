@@ -75,7 +75,8 @@ eia2_resp_total <- function(eia_resp) {
     resp_body_string()
 
   total <- jsonlite::fromJSON(json_body_string) |>
-    purrr::pluck("response", "total")
+    purrr::pluck("response", "total") |>
+    as.numeric()
 
   total
 }
